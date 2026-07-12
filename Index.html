@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penzión DUNA & Soľná jaskyňa — Komárno</title>
+<meta name="description" content="Penzión DUNA & Soľná jaskyňa v historickom centre Komárna. Komfortné izby, reštaurácia s terasou a jedinečná soľná jaskyňa. Rezervujte si pobyt priamo.">
+<meta property="og:title" content="Penzión DUNA & Soľná jaskyňa — Komárno">
+<meta property="og:description" content="Komfort v srdci Komárna. Izby, reštaurácia a soľná jaskyňa v historickom centre mesta.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": "Penzión DUNA & Soľná jaskyňa",
+  "description": "Penzión v historickom centre Komárna s reštauráciou a soľnou jaskyňou.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Dunajská 2",
+    "addressLocality": "Komárno",
+    "postalCode": "945 01",
+    "addressCountry": "SK"
+  },
+  "starRating": { "@type": "Rating", "ratingValue": "3" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "9.2", "reviewCount": "214" },
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Soľná jaskyňa" },
+    { "@type": "LocationFeatureSpecification", "name": "Reštaurácia" },
+    { "@type": "LocationFeatureSpecification", "name": "Bezplatné parkovanie" },
+    { "@type": "LocationFeatureSpecification", "name": "Wi-Fi" }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --cream:#F6F1E7;
+  --warm-white:#FBF8F2;
+  --charcoal:#211D18;
+  --charcoal-soft:#3A342C;
+  --gold:#B8925A;
+  --gold-soft:#D9B98A;
+  --forest:#37483C;
+  --forest-deep:#26332A;
+  --wood:#8A5A3B;
+  --line: rgba(33,29,24,.12);
+  --serif: 'Fraunces', serif;
+  --sans: 'Inter', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.01ms !important; transition-duration:.01ms !important;}
+}
+body{
+  font-family:var(--sans);
+  background:var(--warm-white);
+  color:var(--charcoal);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block;}
+a{color:inherit; text-decoration:none;}
+button{font-family:inherit; cursor:pointer; border:none; background:none;}
+.wrap{max-width:1240px; margin:0 auto; padding:0 32px;}
+h1,h2,h3,h4{font-family:var(--serif); font-weight:500; letter-spacing:-.01em; line-height:1.05;}
+.eyebrow{
+  font-family:var(--sans); font-size:12px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gold); font-weight:600; display:flex; align-items:center; gap:10px; margin-bottom:20px;
+}
+.eyebrow::before{content:""; width:28px; height:1px; background:var(--gold);}
+:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+/* ---------- LOADER ---------- */
+#loader{
+  position:fixed; inset:0; background:var(--charcoal); z-index:9999;
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:18px;
+}
+#loader .mark{font-family:var(--serif); font-size:15px; letter-spacing:.35em; color:var(--gold-soft); text-transform:uppercase;}
+#loader .bar{width:160px; height:1px; background:rgba(217,185,138,.25); position:relative; overflow:hidden;}
+#loader .bar span{position:absolute; inset:0; background:var(--gold); transform-origin:left; transform:scaleX(0);}
+
+/* ---------- NAV ---------- */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  padding:22px 0; transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+}
+header.scrolled{
+  background:rgba(251,248,242,.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  padding:14px 0; box-shadow:0 1px 0 var(--line);
+}
+nav{display:flex; align-items:center; justify-content:space-between;}
+.logo{font-family:var(--serif); font-size:20px; letter-spacing:.02em; color:var(--warm-white); transition:color .4s ease;}
+header.scrolled .logo{color:var(--charcoal);}
+.logo b{color:var(--gold-soft); font-weight:500;}
+header.scrolled .logo b{color:var(--gold);}
+.nav-links{display:flex; gap:38px; align-items:center;}
+.nav-links a{
+  font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:rgba(251,248,242,.85);
+  transition:color .3s ease; position:relative; font-weight:500;
+}
+header.scrolled .nav-links a{color:var(--charcoal-soft);}
+.nav-links a::after{content:""; position:absolute; left:0; bottom:-6px; width:0; height:1px; background:currentColor; transition:width .3s ease;}
+.nav-links a:hover::after{width:100%;}
+.nav-right{display:flex; align-items:center; gap:22px;}
+.lang-switch{display:flex; gap:2px; background:rgba(255,255,255,.08); border-radius:999px; padding:3px;}
+header.scrolled .lang-switch{background:rgba(33,29,24,.06);}
+.lang-switch button{
+  padding:6px 11px; font-size:11px; letter-spacing:.05em; font-weight:600; color:rgba(251,248,242,.65);
+  border-radius:999px; transition:all .25s ease;
+}
+header.scrolled .lang-switch button{color:var(--charcoal-soft);}
+.lang-switch button.active{background:var(--gold); color:var(--charcoal);}
+.nav-cta{
+  padding:11px 24px; border-radius:999px; background:var(--gold); color:var(--charcoal);
+  font-size:12px; letter-spacing:.05em; text-transform:uppercase; font-weight:600;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.nav-cta:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(184,146,90,.4);}
+.burger{display:none; flex-direction:column; gap:5px; width:26px;}
+.burger span{height:1px; background:var(--warm-white); transition:all .3s ease;}
+header.scrolled .burger span{background:var(--charcoal);}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative; height:100vh; min-height:680px; display:flex; align-items:flex-end;
+  overflow:hidden; background:var(--charcoal);
+}
+.hero-media{position:absolute; inset:0; z-index:0;}
+.hero-media img{
+  width:100%; height:120%; object-fit:cover; opacity:.62;
+}
+.hero-media::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(33,29,24,.35) 0%, rgba(33,29,24,.15) 40%, rgba(33,29,24,.85) 100%);
+}
+.hero-inner{position:relative; z-index:2; width:100%; padding-bottom:100px;}
+.hero-eyebrow{
+  font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--gold-soft);
+  font-weight:600; margin-bottom:26px; overflow:hidden;
+}
+.hero-eyebrow span{display:inline-block;}
+.hero h1{
+  font-size:clamp(40px, 7vw, 96px); color:var(--warm-white); max-width:920px; font-weight:400;
+}
+.hero h1 .line{overflow:hidden; display:block;}
+.hero h1 .line span{display:inline-block; will-change:transform;}
+.hero-sub{
+  margin-top:28px; font-size:17px; line-height:1.7; color:rgba(251,248,242,.78); max-width:480px; font-weight:300;
+}
+.hero-ctas{display:flex; gap:18px; margin-top:44px; flex-wrap:wrap;}
+.btn-primary{
+  position:relative; padding:17px 34px; background:var(--gold); color:var(--charcoal); border-radius:999px;
+  font-size:13px; letter-spacing:.06em; text-transform:uppercase; font-weight:600; overflow:hidden;
+}
+.btn-primary span{position:relative; z-index:2;}
+.btn-primary::before{
+  content:""; position:absolute; inset:0; background:var(--charcoal); transform:translateY(101%);
+  transition:transform .45s cubic-bezier(.65,0,.35,1); z-index:1;
+}
+.btn-primary:hover::before{transform:translateY(0);}
+.btn-primary:hover{color:var(--warm-white);}
+.btn-ghost{
+  padding:17px 30px; border:1px solid rgba(251,248,242,.35); color:var(--warm-white); border-radius:999px;
+  font-size:13px; letter-spacing:.06em; text-transform:uppercase; font-weight:500; transition:all .35s ease;
+}
+.btn-ghost:hover{background:rgba(251,248,242,.1); border-color:rgba(251,248,242,.7);}
+.scroll-indicator{
+  position:absolute; bottom:40px; left:32px; z-index:2; display:flex; align-items:center; gap:12px;
+  color:rgba(251,248,242,.6); font-size:11px; letter-spacing:.15em; text-transform:uppercase;
+}
+.scroll-indicator .dash{width:1px; height:38px; background:rgba(251,248,242,.4); position:relative; overflow:hidden;}
+.scroll-indicator .dash::after{
+  content:""; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--gold-soft);
+  animation:scrollDash 2.2s ease-in-out infinite;
+}
+@keyframes scrollDash{ 0%{top:-100%;} 60%{top:100%;} 100%{top:100%;} }
+
+/* floating decor */
+.float-deco{position:absolute; border-radius:50%; filter:blur(2px); opacity:.5; pointer-events:none; z-index:1;}
+
+/* ---------- SECTION GENERIC ---------- */
+section{position:relative;}
+.section-pad{padding:150px 0;}
+@media (max-width:768px){.section-pad{padding:96px 0;}}
+.split{display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;}
+@media (max-width:900px){.split{grid-template-columns:1fr; gap:48px;}}
+.reveal{opacity:0; transform:translateY(36px);}
+.rich-img{border-radius:14px; overflow:hidden; position:relative;}
+.rich-img img{width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(.16,1,.3,1);}
+.rich-img:hover img{transform:scale(1.06);}
+
+/* ---------- ABOUT ---------- */
+.about{background:var(--warm-white);}
+.about-media{position:relative;}
+.about-media .rich-img{aspect-ratio:4/5;}
+.about-media .float-card{
+  position:absolute; bottom:-30px; right:-30px; background:var(--charcoal); color:var(--warm-white);
+  padding:28px 32px; border-radius:14px; max-width:230px; box-shadow:0 30px 60px rgba(0,0,0,.25);
+}
+.about-media .float-card .num{font-family:var(--serif); font-size:34px; color:var(--gold-soft);}
+.about-media .float-card p{font-size:12.5px; line-height:1.5; color:rgba(251,248,242,.75); margin-top:6px;}
+.about h2{font-size:clamp(30px,4vw,48px); margin-bottom:26px;}
+.about p.lead{font-size:17px; line-height:1.8; color:var(--charcoal-soft); font-weight:300; margin-bottom:20px;}
+.about-features{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:34px;}
+.about-feature{display:flex; gap:14px; align-items:flex-start;}
+.about-feature .ic{
+  width:38px; height:38px; border-radius:50%; background:var(--cream); display:flex; align-items:center;
+  justify-content:center; flex-shrink:0; color:var(--forest);
+}
+.about-feature h4{font-size:14.5px; font-family:var(--sans); font-weight:600; margin-bottom:4px;}
+.about-feature p{font-size:13px; color:var(--charcoal-soft); line-height:1.5;}
+
+/* counters */
+.counters{background:var(--forest); padding:70px 0;}
+.counters .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center;}
+@media (max-width:768px){.counters .wrap{grid-template-columns:1fr 1fr;}}
+.counter-item .num{font-family:var(--serif); font-size:clamp(34px,4.4vw,52px); color:var(--gold-soft);}
+.counter-item p{font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:rgba(251,248,242,.7); margin-top:8px;}
+
+/* ---------- ROOMS ---------- */
+.rooms{background:var(--cream);}
+.section-head{max-width:640px; margin-bottom:64px;}
+.section-head h2{font-size:clamp(32px,4.4vw,54px);}
+.section-head p{margin-top:18px; font-size:16px; color:var(--charcoal-soft); font-weight:300; line-height:1.7;}
+.room-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:30px;}
+@media (max-width:980px){.room-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:680px){.room-grid{grid-template-columns:1fr;}}
+.room-card{
+  background:var(--warm-white); border-radius:16px; overflow:hidden; box-shadow:0 12px 40px rgba(33,29,24,.06);
+  transition:transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s ease;
+}
+.room-card:hover{transform:translateY(-8px); box-shadow:0 26px 60px rgba(33,29,24,.14);}
+.room-media{aspect-ratio:4/3; overflow:hidden; position:relative;}
+.room-media img{width:100%; height:100%; object-fit:cover; transition:transform .8s cubic-bezier(.16,1,.3,1);}
+.room-card:hover .room-media img{transform:scale(1.08);}
+.room-price{
+  position:absolute; top:16px; right:16px; background:rgba(251,248,242,.92); backdrop-filter:blur(6px);
+  padding:8px 14px; border-radius:999px; font-size:12.5px; font-weight:600; color:var(--charcoal);
+}
+.room-price span{color:var(--gold); font-weight:700;}
+.room-body{padding:26px;}
+.room-body h3{font-size:21px; margin-bottom:8px;}
+.room-meta{display:flex; gap:16px; font-size:12px; color:var(--charcoal-soft); margin-bottom:16px; flex-wrap:wrap;}
+.room-meta span{display:flex; align-items:center; gap:5px;}
+.room-amenities{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px;}
+.room-amenities span{
+  font-size:11px; padding:5px 10px; background:var(--cream); border-radius:999px; color:var(--charcoal-soft);
+}
+.room-book{
+  display:flex; align-items:center; justify-content:space-between; width:100%; padding:13px 18px;
+  border:1px solid var(--charcoal); border-radius:999px; font-size:12.5px; letter-spacing:.05em;
+  text-transform:uppercase; font-weight:600; transition:all .35s ease;
+}
+.room-book:hover{background:var(--charcoal); color:var(--warm-white);}
+
+/* ---------- BOOKING ---------- */
+.booking{background:var(--charcoal); color:var(--warm-white); overflow:hidden; position:relative;}
+.booking::before{
+  content:""; position:absolute; top:-200px; right:-200px; width:500px; height:500px; border-radius:50%;
+  background:radial-gradient(circle, rgba(184,146,90,.18), transparent 70%); pointer-events:none;
+}
+.booking .section-head p{color:rgba(251,248,242,.65);}
+.booking .section-head h2{color:var(--warm-white);}
+.booking-panel{
+  background:rgba(251,248,242,.04); border:1px solid rgba(251,248,242,.12); border-radius:22px; padding:44px;
+  backdrop-filter:blur(10px);
+}
+.bk-grid{display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:18px;}
+@media (max-width:900px){.bk-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.bk-grid{grid-template-columns:1fr;}}
+.bk-field label{
+  display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-soft);
+  margin-bottom:10px; font-weight:600;
+}
+.bk-field select, .bk-field input{
+  width:100%; padding:14px 16px; background:rgba(251,248,242,.06); border:1px solid rgba(251,248,242,.16);
+  border-radius:10px; color:var(--warm-white); font-size:14px; font-family:inherit; transition:border-color .3s ease;
+}
+.bk-field select:focus, .bk-field input:focus{border-color:var(--gold); outline:none;}
+.bk-field select option{color:#111;}
+.bk-notes{margin-top:18px;}
+.bk-notes textarea{
+  width:100%; min-height:80px; padding:14px 16px; background:rgba(251,248,242,.06); border:1px solid rgba(251,248,242,.16);
+  border-radius:10px; color:var(--warm-white); font-family:inherit; font-size:14px; resize:vertical;
+}
+.bk-bottom{display:flex; align-items:center; justify-content:space-between; margin-top:28px; flex-wrap:wrap; gap:20px;}
+.bk-estimate{font-size:14px; color:rgba(251,248,242,.75);}
+.bk-estimate b{font-family:var(--serif); font-size:26px; color:var(--gold-soft); font-weight:500; margin-left:8px;}
+.bk-submit{
+  padding:17px 36px; background:var(--gold); color:var(--charcoal); border-radius:999px; font-weight:700;
+  font-size:13px; letter-spacing:.05em; text-transform:uppercase; display:flex; align-items:center; gap:10px;
+  transition:all .35s ease; position:relative; overflow:hidden;
+}
+.bk-submit:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(184,146,90,.35);}
+.bk-submit.loading .btn-text{opacity:0;}
+.spinner{
+  position:absolute; width:18px; height:18px; border-radius:50%; border:2px solid rgba(33,29,24,.25);
+  border-top-color:var(--charcoal); opacity:0; animation:spin .7s linear infinite;
+}
+.bk-submit.loading .spinner{opacity:1;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.bk-success{
+  display:none; text-align:center; padding:50px 20px;
+}
+.bk-success.show{display:block;}
+.bk-success .check{
+  width:70px; height:70px; border-radius:50%; border:2px solid var(--gold); display:flex; align-items:center;
+  justify-content:center; margin:0 auto 24px; position:relative;
+}
+.bk-success .check svg{width:30px; height:30px;}
+.bk-success .check path{stroke-dasharray:40; stroke-dashoffset:40; animation:draw .5s .2s ease forwards;}
+@keyframes draw{to{stroke-dashoffset:0;}}
+.bk-success h3{font-size:26px; margin-bottom:10px;}
+.bk-success p{color:rgba(251,248,242,.7); font-size:14.5px;}
+
+/* ---------- SALT CAVE ---------- */
+.cave{
+  background:var(--forest-deep); color:var(--warm-white); position:relative; overflow:hidden;
+}
+.cave-glow{
+  position:absolute; inset:0; background:radial-gradient(ellipse at 30% 40%, rgba(184,146,90,.14), transparent 55%);
+  pointer-events:none;
+}
+.cave .split{align-items:center;}
+.cave-media{position:relative; aspect-ratio:1/1; border-radius:20px; overflow:hidden;}
+.cave-media img{width:100%; height:100%; object-fit:cover;}
+.crystal{position:absolute; opacity:.7; pointer-events:none;}
+.cave h2{color:var(--warm-white); font-size:clamp(30px,4vw,46px);}
+.cave p.lead{color:rgba(251,248,242,.72); font-size:16px; line-height:1.8; font-weight:300; margin-bottom:26px;}
+.cave-list{display:flex; flex-direction:column; gap:16px; margin-bottom:34px;}
+.cave-list li{display:flex; gap:14px; align-items:flex-start; list-style:none; font-size:14.5px; color:rgba(251,248,242,.85);}
+.cave-list .dot{width:6px; height:6px; border-radius:50%; background:var(--gold-soft); margin-top:8px; flex-shrink:0;}
+.cave-meta{display:flex; gap:40px; margin-bottom:34px; flex-wrap:wrap;}
+.cave-meta div .k{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:6px;}
+.cave-meta div .v{font-family:var(--serif); font-size:19px;}
+
+/* ---------- RESTAURANT ---------- */
+.resto{background:var(--warm-white);}
+.resto .split{grid-template-columns:1.1fr 1fr;}
+.resto-media{position:relative; display:grid; grid-template-columns:1.3fr 1fr; gap:16px; height:520px;}
+.resto-media .rich-img:first-child{grid-row:span 2;}
+@media (max-width:900px){.resto-media{height:auto; grid-template-columns:1fr 1fr;}}
+.resto h2{font-size:clamp(30px,4vw,46px); margin-bottom:22px;}
+.resto p.lead{font-size:16px; line-height:1.8; color:var(--charcoal-soft); font-weight:300; margin-bottom:30px;}
+.resto-tags{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:34px;}
+.resto-tags span{
+  padding:9px 16px; background:var(--cream); border-radius:999px; font-size:12.5px; font-weight:500; color:var(--charcoal-soft);
+}
+
+/* ---------- GALLERY ---------- */
+.gallery{background:var(--cream);}
+.masonry{columns:4 220px; column-gap:18px;}
+@media (max-width:768px){.masonry{columns:2 160px;}}
+.masonry .g-item{
+  break-inside:avoid; margin-bottom:18px; border-radius:12px; overflow:hidden; cursor:pointer; position:relative;
+}
+.masonry .g-item img{width:100%; display:block; transition:transform .6s cubic-bezier(.16,1,.3,1);}
+.masonry .g-item:hover img{transform:scale(1.07);}
+.masonry .g-item::after{
+  content:""; position:absolute; inset:0; background:rgba(33,29,24,0); transition:background .4s ease;
+}
+.masonry .g-item:hover::after{background:rgba(33,29,24,.12);}
+#lightbox{
+  position:fixed; inset:0; background:rgba(17,15,12,.94); z-index:2000; display:none; align-items:center;
+  justify-content:center; padding:40px;
+}
+#lightbox.open{display:flex;}
+#lightbox img{max-width:90vw; max-height:85vh; border-radius:8px; object-fit:contain;}
+#lightbox .lb-close{position:absolute; top:30px; right:36px; color:#fff; font-size:14px; letter-spacing:.1em; text-transform:uppercase;}
+
+/* ---------- TESTIMONIALS ---------- */
+.testi{background:var(--charcoal); color:var(--warm-white); position:relative;}
+.testi .section-head h2{color:var(--warm-white);}
+.testi .section-head p{color:rgba(251,248,242,.65);}
+.testi-track{display:flex; gap:24px; overflow:hidden; position:relative;}
+.testi-slide{
+  min-width:100%; background:rgba(251,248,242,.04); border:1px solid rgba(251,248,242,.1); border-radius:18px;
+  padding:44px; display:none;
+}
+.testi-slide.active{display:block;}
+.stars{color:var(--gold-soft); font-size:15px; letter-spacing:2px; margin-bottom:22px;}
+.testi-slide p.quote{font-family:var(--serif); font-size:clamp(19px,2.4vw,26px); line-height:1.55; font-weight:400; color:var(--warm-white); margin-bottom:28px;}
+.testi-author{display:flex; align-items:center; gap:14px;}
+.testi-author .av{width:44px; height:44px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; font-family:var(--serif); color:var(--charcoal); font-weight:600;}
+.testi-author .name{font-weight:600; font-size:14.5px;}
+.testi-author .from{font-size:12px; color:rgba(251,248,242,.55);}
+.testi-nav{display:flex; gap:12px; margin-top:34px;}
+.testi-nav button{
+  width:44px; height:44px; border-radius:50%; border:1px solid rgba(251,248,242,.3); color:var(--warm-white);
+  display:flex; align-items:center; justify-content:center; transition:all .3s ease;
+}
+.testi-nav button:hover{background:var(--gold); border-color:var(--gold); color:var(--charcoal);}
+
+/* ---------- LOCATION ---------- */
+.location{background:var(--warm-white);}
+.loc-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+@media (max-width:900px){.loc-grid{grid-template-columns:1fr;}}
+.loc-map{border-radius:18px; overflow:hidden; height:460px; border:1px solid var(--line);}
+.loc-map iframe{width:100%; height:100%; border:0; filter:grayscale(.25) contrast(1.05);}
+.loc-list{display:flex; flex-direction:column; gap:20px; margin-top:26px;}
+.loc-item{display:flex; justify-content:space-between; padding-bottom:18px; border-bottom:1px solid var(--line); font-size:14.5px;}
+.loc-item .name{color:var(--charcoal); font-weight:500;}
+.loc-item .dist{color:var(--gold); font-weight:600;}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--cream);}
+.contact-grid{display:grid; grid-template-columns:1fr 1.1fr; gap:70px;}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+.contact-info h2{font-size:clamp(30px,4vw,44px); margin-bottom:26px;}
+.contact-item{display:flex; gap:16px; margin-bottom:26px; align-items:flex-start;}
+.contact-item .ic{
+  width:42px; height:42px; border-radius:50%; background:var(--warm-white); display:flex; align-items:center;
+  justify-content:center; flex-shrink:0; color:var(--forest); box-shadow:0 6px 16px rgba(33,29,24,.06);
+}
+.contact-item .k{font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--gold); font-weight:600; margin-bottom:4px;}
+.contact-item .v{font-size:15px; color:var(--charcoal);}
+.contact-form{background:var(--warm-white); border-radius:20px; padding:44px; box-shadow:0 20px 50px rgba(33,29,24,.06);}
+.cf-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+@media (max-width:520px){.cf-row{grid-template-columns:1fr;}}
+.cf-field label{display:block; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--charcoal-soft); margin-bottom:8px; font-weight:600;}
+.cf-field input, .cf-field textarea{
+  width:100%; padding:13px 15px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14px;
+  background:var(--warm-white); transition:border-color .3s ease;
+}
+.cf-field input:focus, .cf-field textarea:focus{border-color:var(--gold); outline:none;}
+.cf-field textarea{min-height:110px; resize:vertical;}
+.cf-submit{
+  margin-top:8px; width:100%; padding:16px; background:var(--charcoal); color:var(--warm-white); border-radius:999px;
+  font-size:13px; letter-spacing:.06em; text-transform:uppercase; font-weight:600; transition:all .35s ease;
+}
+.cf-submit:hover{background:var(--forest);}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--charcoal); color:rgba(251,248,242,.6); padding:70px 0 30px;}
+.foot-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:40px; padding-bottom:50px; border-bottom:1px solid rgba(251,248,242,.1);}
+.foot-logo{font-family:var(--serif); font-size:24px; color:var(--warm-white);}
+.foot-logo b{color:var(--gold-soft);}
+.foot-links{display:flex; gap:60px; flex-wrap:wrap;}
+.foot-col h5{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:16px;}
+.foot-col a{display:block; font-size:13.5px; margin-bottom:10px; color:rgba(251,248,242,.65); transition:color .3s ease;}
+.foot-col a:hover{color:var(--warm-white);}
+.foot-bottom{display:flex; justify-content:space-between; padding-top:26px; font-size:12px; flex-wrap:wrap; gap:10px;}
+
+/* mobile nav */
+.mobile-menu{
+  position:fixed; inset:0; background:var(--charcoal); z-index:600; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:30px; transform:translateY(-100%); transition:transform .5s cubic-bezier(.65,0,.35,1);
+}
+.mobile-menu.open{transform:translateY(0);}
+.mobile-menu a{font-family:var(--serif); font-size:28px; color:var(--warm-white);}
+.mobile-close{position:absolute; top:26px; right:32px; color:var(--warm-white); font-size:26px;}
+
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+}
+[data-i18n]{transition:opacity .2s ease;}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="mark">Penzión Duna</div><div class="bar"><span></span></div></div>
+
+<!-- NAV -->
+<header id="siteHeader">
+  <div class="wrap">
+    <nav>
+      <a href="#hero" class="logo">DUNA <b>&</b> Soľná jaskyňa</a>
+      <div class="nav-links">
+        <a href="#about" data-i18n="nav.about">O nás</a>
+        <a href="#rooms" data-i18n="nav.rooms">Izby</a>
+        <a href="#cave" data-i18n="nav.cave">Soľná jaskyňa</a>
+        <a href="#restaurant" data-i18n="nav.resto">Reštaurácia</a>
+        <a href="#gallery" data-i18n="nav.gallery">Galéria</a>
+        <a href="#contact" data-i18n="nav.contact">Kontakt</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-switch" id="langSwitch">
+          <button data-lang="sk" class="active">SK</button>
+          <button data-lang="hu">HU</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <a href="#booking" class="nav-cta" data-i18n="nav.book">Rezervovať</a>
+        <div class="burger" id="burger"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-close" id="mobileClose">✕</div>
+  <a href="#about">O nás</a>
+  <a href="#rooms">Izby</a>
+  <a href="#cave">Soľná jaskyňa</a>
+  <a href="#restaurant">Reštaurácia</a>
+  <a href="#gallery">Galéria</a>
+  <a href="#contact">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1800&auto=format&fit=crop" alt="Penzión Duna, Komárno">
+  </div>
+  <div class="float-deco" style="width:120px;height:120px;background:radial-gradient(circle,rgba(184,146,90,.5),transparent 70%); top:20%; right:12%;"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-eyebrow"><span data-i18n="hero.eyebrow">Historické centrum Komárna</span></div>
+    <h1 id="heroHeadline" data-i18n-lines="hero.title"></h1>
+    <p class="hero-sub reveal" data-i18n="hero.sub">Rodinný penzión s dušou — komfortné izby, reštaurácia s terasou a jedinečná soľná jaskyňa, len pár krokov od Dunaja a historického jadra mesta.</p>
+    <div class="hero-ctas reveal">
+      <a href="#booking" class="btn-primary"><span data-i18n="hero.cta1">Rezervovať pobyt</span></a>
+      <a href="#rooms" class="btn-ghost" data-i18n="hero.cta2">Prezrieť izby</a>
+    </div>
+  </div>
+  <div class="scroll-indicator"><div class="dash"></div><span data-i18n="hero.scroll">Skrolujte</span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section-pad" id="about">
+  <div class="wrap split">
+    <div class="about-media reveal">
+      <div class="rich-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1200&auto=format&fit=crop" alt="Interiér penziónu Duna"></div>
+      <div class="float-card">
+        <div class="num">9.2</div>
+        <p data-i18n="about.card">Hodnotenie hostí za polohu a atmosféru penziónu</p>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow" data-i18n="about.eyebrow">O penzióne</div>
+      <h2 data-i18n="about.title">Rodinná pohostinnosť v srdci starého mesta</h2>
+      <p class="lead" data-i18n="about.p1">Penzión DUNA stojí len pár metrov od Európskeho nádvoria, v tichej uličke historického centra Komárna. Spájame domácu atmosféru s pozornosťou k detailu, ktorú by ste čakali od oveľa väčšieho hotela.</p>
+      <p class="lead" data-i18n="about.p2">Naši hostia sa vracajú pre kombináciu, ktorú v meste inde nenájdu — komfortné izby, reštauráciu s letnou terasou a jedinečnú soľnú jaskyňu priamo v budove penziónu.</p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="ic">🛏️</div>
+          <div><h4 data-i18n="about.f1t">Komfortné izby</h4><p data-i18n="about.f1d">Klimatizácia, súkromná kúpeľňa, Wi-Fi</p></div>
+        </div>
+        <div class="about-feature">
+          <div class="ic">📍</div>
+          <div><h4 data-i18n="about.f2t">Ideálna poloha</h4><p data-i18n="about.f2d">250 m od centra, pri Dunaji</p></div>
+        </div>
+        <div class="about-feature">
+          <div class="ic">🧂</div>
+          <div><h4 data-i18n="about.f3t">Soľná jaskyňa</h4><p data-i18n="about.f3d">Relax priamo v penzióne</p></div>
+        </div>
+        <div class="about-feature">
+          <div class="ic">🍽️</div>
+          <div><h4 data-i18n="about.f4t">Reštaurácia</h4><p data-i18n="about.f4d">Letná terasa, domáca kuchyňa</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTERS -->
+<div class="counters">
+  <div class="wrap">
+    <div class="counter-item"><div class="num" data-count="5">0</div><p data-i18n="counters.rooms">Izieb a apartmánov</p></div>
+    <div class="counter-item"><div class="num" data-count="9.2" data-decimal="1">0</div><p data-i18n="counters.rating">Priemerné hodnotenie</p></div>
+    <div class="counter-item"><div class="num" data-count="250">0</div><p data-i18n="counters.center">Metrov od centra (m)</p></div>
+    <div class="counter-item"><div class="num" data-count="4">0</div><p data-i18n="counters.langs">Jazyky personálu</p></div>
+  </div>
+</div>
+
+<!-- ROOMS -->
+<section class="rooms section-pad" id="rooms">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="rooms.eyebrow">Ubytovanie</div>
+      <h2 data-i18n="rooms.title">Izby a apartmány pre každý pobyt</h2>
+      <p data-i18n="rooms.sub">Od útulnej dvojlôžkovej izby po priestranné apartmány — každá izba je klimatizovaná, s vlastnou kúpeľňou a bezplatným Wi-Fi.</p>
+    </div>
+    <div class="room-grid" id="roomGrid">
+      <!-- Room cards injected -->
+      <div class="room-card reveal" data-room="Deluxe Dvojlôžková" data-price="72">
+        <div class="room-media">
+          <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=1000&auto=format&fit=crop" alt="Deluxe dvojlôžková izba">
+          <div class="room-price">od <span>72 €</span> / noc</div>
+        </div>
+        <div class="room-body">
+          <h3 data-i18n="room1.name">Deluxe Dvojlôžková</h3>
+          <div class="room-meta">
+            <span>👤 <span data-i18n="room1.guests">2 hostia</span></span>
+            <span>📐 <span data-i18n="room1.size">22 m²</span></span>
+            <span>❄️ <span data-i18n="room1.ac">Klimatizácia</span></span>
+          </div>
+          <div class="room-amenities">
+            <span data-i18n="am.wifi">Wi-Fi</span><span data-i18n="am.tv">Satelitná TV</span><span data-i18n="am.bath">Súkromná kúpeľňa</span>
+          </div>
+          <a href="#booking" class="room-book"><span data-i18n="room.book">Rezervovať</span> <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="room-card reveal" data-room="Apartmán Anna" data-price="98">
+        <div class="room-media">
+          <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=1000&auto=format&fit=crop" alt="Apartmán Anna">
+          <div class="room-price">od <span>98 €</span> / noc</div>
+        </div>
+        <div class="room-body">
+          <h3 data-i18n="room2.name">Apartmán Anna</h3>
+          <div class="room-meta">
+            <span>👤 <span data-i18n="room2.guests">3–4 hostia</span></span>
+            <span>📐 <span data-i18n="room2.size">38 m²</span></span>
+            <span>🛋️ <span data-i18n="room2.rooms">2 izby</span></span>
+          </div>
+          <div class="room-amenities">
+            <span data-i18n="am.kitchenette">Kuchynka</span><span data-i18n="am.terrace">Terasa</span><span data-i18n="am.wifi">Wi-Fi</span>
+          </div>
+          <a href="#booking" class="room-book"><span data-i18n="room.book">Rezervovať</span> <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="room-card reveal" data-room="Apartmán Rea" data-price="98">
+        <div class="room-media">
+          <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1000&auto=format&fit=crop" alt="Apartmán Rea">
+          <div class="room-price">od <span>98 €</span> / noc</div>
+        </div>
+        <div class="room-body">
+          <h3 data-i18n="room3.name">Apartmán Rea</h3>
+          <div class="room-meta">
+            <span>👤 <span data-i18n="room3.guests">3–4 hostia</span></span>
+            <span>📐 <span data-i18n="room3.size">36 m²</span></span>
+            <span>🛋️ <span data-i18n="room3.rooms">2 izby</span></span>
+          </div>
+          <div class="room-amenities">
+            <span data-i18n="am.kitchenette">Kuchynka</span><span data-i18n="am.parking">Parkovanie</span><span data-i18n="am.wifi">Wi-Fi</span>
+          </div>
+          <a href="#booking" class="room-book"><span data-i18n="room.book">Rezervovať</span> <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking section-pad" id="booking">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="booking.eyebrow">Rezervácia</div>
+      <h2 data-i18n="booking.title">Rezervujte si pobyt priamo</h2>
+      <p data-i18n="booking.sub">Vyberte termín, izbu a počet hostí. Potvrdíme vašu rezerváciu do 24 hodín na e-mail.</p>
+    </div>
+
+    <div class="booking-panel">
+      <form id="bookingForm">
+        <div class="bk-grid">
+          <div class="bk-field">
+            <label data-i18n="booking.arrival">Príchod</label>
+            <input type="date" id="bkArrival" required>
+          </div>
+          <div class="bk-field">
+            <label data-i18n="booking.departure">Odchod</label>
+            <input type="date" id="bkDeparture" required>
+          </div>
+          <div class="bk-field">
+            <label data-i18n="booking.room">Izba</label>
+            <select id="bkRoom">
+              <option value="72" data-i18n="room1.name">Deluxe Dvojlôžková</option>
+              <option value="98" data-i18n="room2.name">Apartmán Anna</option>
+              <option value="98" data-i18n="room3.name">Apartmán Rea</option>
+            </select>
+          </div>
+          <div class="bk-field">
+            <label data-i18n="booking.guests">Počet hostí</label>
+            <select id="bkGuests">
+              <option>1</option><option selected>2</option><option>3</option><option>4</option>
+            </select>
+          </div>
+        </div>
+        <div class="bk-field bk-notes">
+          <label data-i18n="booking.notes">Špeciálne požiadavky (voliteľné)</label>
+          <textarea id="bkNotes" placeholder="Napr. neskorý príchod, alergie, soľná jaskyňa..." data-i18n-ph="booking.notesPh"></textarea>
+        </div>
+        <div class="bk-bottom">
+          <div class="bk-estimate"><span data-i18n="booking.estimate">Odhadovaná cena</span><b id="bkTotal">— €</b></div>
+          <button type="submit" class="bk-submit" id="bkSubmit">
+            <span class="btn-text" data-i18n="booking.submit">Odoslať rezerváciu</span>
+            <div class="spinner"></div>
+          </button>
+        </div>
+      </form>
+
+      <div class="bk-success" id="bkSuccess">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5L9.5 18L20 6" stroke="#B8925A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 data-i18n="booking.successTitle">Rezervácia odoslaná</h3>
+        <p data-i18n="booking.successDesc">Ďakujeme! Potvrdenie vám pošleme e-mailom do 24 hodín. Tešíme sa na vašu návštevu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SALT CAVE -->
+<section class="cave section-pad" id="cave">
+  <div class="cave-glow"></div>
+  <div class="wrap split">
+    <div class="cave-media reveal">
+      <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1000&auto=format&fit=crop" alt="Soľná jaskyňa">
+    </div>
+    <div>
+      <div class="eyebrow" data-i18n="cave.eyebrow">Jedinečný zážitok</div>
+      <h2 data-i18n="cave.title">Soľná jaskyňa priamo v penzióne</h2>
+      <p class="lead" data-i18n="cave.p">Naša soľná jaskyňa vytvára mikroklímu prímorského pobrežia — ideálnu na relaxáciu, dýchacie cesty a regeneráciu po dni plnom pamiatok. Otvorená pre hostí aj verejnosť.</p>
+      <ul class="cave-list">
+        <li><span class="dot"></span><span data-i18n="cave.b1">Podpora dýchacích ciest a imunity</span></li>
+        <li><span class="dot"></span><span data-i18n="cave.b2">Hlboká relaxácia a redukcia stresu</span></li>
+        <li><span class="dot"></span><span data-i18n="cave.b3">Vhodné pre deti aj seniorov</span></li>
+        <li><span class="dot"></span><span data-i18n="cave.b4">Príjemné, tlmené osvetlenie a ticho</span></li>
+      </ul>
+      <div class="cave-meta">
+        <div><div class="k" data-i18n="cave.hoursK">Otváracie hodiny</div><div class="v">14:00 – 20:00</div></div>
+        <div><div class="k" data-i18n="cave.priceK">Cena / vstup</div><div class="v">6 €</div></div>
+      </div>
+      <a href="#booking" class="btn-primary"><span data-i18n="cave.cta">Rezervovať soľnú jaskyňu</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- RESTAURANT -->
+<section class="resto section-pad" id="restaurant">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow" data-i18n="resto.eyebrow">Gastronómia</div>
+      <h2 data-i18n="resto.title">Reštaurácia s letnou terasou</h2>
+      <p class="lead" data-i18n="resto.p">Domáca kuchyňa pripravovaná z lokálnych surovín, podávaná v útulnej reštaurácii alebo na tienistej terase. Raňajky, obedy aj večere pre hostí aj okoloidúcich.</p>
+      <div class="resto-tags">
+        <span data-i18n="resto.t1">Raňajky na objednávku</span>
+        <span data-i18n="resto.t2">Letná terasa</span>
+        <span data-i18n="resto.t3">Domáca kuchyňa</span>
+        <span data-i18n="resto.t4">Slovenská & maďarská kuchyňa</span>
+      </div>
+      <a href="#contact" class="btn-ghost" style="border-color:var(--charcoal); color:var(--charcoal);" data-i18n="resto.cta">Pozrieť menu</a>
+    </div>
+    <div class="resto-media reveal">
+      <div class="rich-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=900&auto=format&fit=crop" alt="Reštaurácia Duna"></div>
+      <div class="rich-img"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=700&auto=format&fit=crop" alt="Terasa"></div>
+      <div class="rich-img"><img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=700&auto=format&fit=crop" alt="Jedlo"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery section-pad" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="gallery.eyebrow">Galéria</div>
+      <h2 data-i18n="gallery.title">Nahliadnite do penziónu</h2>
+    </div>
+    <div class="masonry" id="masonry">
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=600&auto=format&fit=crop" alt="Izba"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=700&auto=format&fit=crop" alt="Exteriér"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop" alt="Reštaurácia"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=600&auto=format&fit=crop" alt="Soľná jaskyňa"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=700&auto=format&fit=crop" alt="Apartmán"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600&auto=format&fit=crop" alt="Terasa"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=700&auto=format&fit=crop" alt="Interiér"></div>
+      <div class="g-item"><img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=600&auto=format&fit=crop" alt="Jedlo"></div>
+    </div>
+  </div>
+</section>
+<div id="lightbox"><div class="lb-close" id="lbClose">Zavrieť ✕</div><img id="lbImg" src="" alt=""></div>
+
+<!-- TESTIMONIALS -->
+<section class="testi section-pad" id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="testi.eyebrow">Referencie</div>
+      <h2 data-i18n="testi.title">Čo hovoria naši hostia</h2>
+    </div>
+    <div class="testi-track" id="testiTrack">
+      <div class="testi-slide active">
+        <div class="stars">★★★★★</div>
+        <p class="quote" data-i18n="testi.q1">„Skvelé miesto blízko peších zón. Izba priestranná a pohodlná, personál veľmi ochotný. Soľná jaskyňa bola príjemným prekvapením.“</p>
+        <div class="testi-author"><div class="av">M</div><div><div class="name">Martina K.</div><div class="from" data-i18n="testi.from1">Bratislava, SK</div></div></div>
+      </div>
+      <div class="testi-slide">
+        <div class="stars">★★★★★</div>
+        <p class="quote" data-i18n="testi.q2">„Skvelá poloha, priateľský prístup, čisto a útulne. Bicykle sme mali bezpečne uschované priamo v izbe.“</p>
+        <div class="testi-author"><div class="av">P</div><div><div class="name">Péter N.</div><div class="from" data-i18n="testi.from2">Győr, HU</div></div></div>
+      </div>
+      <div class="testi-slide">
+        <div class="stars">★★★★★</div>
+        <p class="quote" data-i18n="testi.q3">„Veľmi spokojní s pobytom. Izby pekné, s TV a všetkým potrebným. Raňajky na objednávku boli výborné.“</p>
+        <div class="testi-author"><div class="av">S</div><div><div class="name">Sarah W.</div><div class="from" data-i18n="testi.from3">Viedeň, AT</div></div></div>
+      </div>
+    </div>
+    <div class="testi-nav"><button id="testiPrev">←</button><button id="testiNext">→</button></div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location section-pad" id="location">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="loc.eyebrow">Poloha</div>
+      <h2 data-i18n="loc.title">V srdci historického Komárna</h2>
+      <p data-i18n="loc.sub">Penzión sa nachádza na Dunajskej ulici, 250 m od centra mesta a Európskeho nádvoria, s bezplatným parkovaním priamo na mieste.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-map">
+        <iframe src="https://maps.google.com/maps?q=Dunajsk%C3%A1%202%2C%20Kom%C3%A1rno&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" title="Mapa - Penzión Duna Komárno"></iframe>
+      </div>
+      <div>
+        <div class="loc-list">
+          <div class="loc-item"><span class="name" data-i18n="loc.i1">Európske nádvorie</span><span class="dist">4 min pešo</span></div>
+          <div class="loc-item"><span class="name" data-i18n="loc.i2">Podunajské múzeum</span><span class="dist">2 min pešo</span></div>
+          <div class="loc-item"><span class="name" data-i18n="loc.i3">Pevnosť Komárno</span><span class="dist">8 min pešo</span></div>
+          <div class="loc-item"><span class="name" data-i18n="loc.i4">Termálne kúpalisko</span><span class="dist">300 m</span></div>
+          <div class="loc-item"><span class="name" data-i18n="loc.i5">Železničná stanica</span><span class="dist">20 min pešo</span></div>
+          <div class="loc-item"><span class="name" data-i18n="loc.i6">Bezplatné parkovanie</span><span class="dist" data-i18n="loc.onsite">Priamo na mieste</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section-pad" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <div class="eyebrow" data-i18n="contact.eyebrow">Kontakt</div>
+      <h2 data-i18n="contact.title">Máte otázku? Napíšte nám</h2>
+      <div class="contact-item">
+        <div class="ic">📍</div>
+        <div><div class="k" data-i18n="contact.addrK">Adresa</div><div class="v">Dunajská 2, 945 01 Komárno, Slovensko</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="ic">☎️</div>
+        <div><div class="k" data-i18n="contact.phoneK">Telefón</div><div class="v">+421 903 XXX XXX</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="ic">✉️</div>
+        <div><div class="k" data-i18n="contact.emailK">E-mail</div><div class="v">info@penzionduna.sk</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="ic">🕒</div>
+        <div><div class="k" data-i18n="contact.hoursK">Recepcia</div><div class="v" data-i18n="contact.hoursV">Check-in 14:00–20:00 · Check-out do 10:00</div></div>
+      </div>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <div class="cf-row">
+        <div class="cf-field"><label data-i18n="contact.name">Meno</label><input type="text" required></div>
+        <div class="cf-field"><label data-i18n="contact.email">E-mail</label><input type="email" required></div>
+      </div>
+      <div class="cf-field" style="margin-bottom:16px;"><label data-i18n="contact.subject">Predmet</label><input type="text"></div>
+      <div class="cf-field" style="margin-bottom:16px;"><label data-i18n="contact.message">Správa</label><textarea required></textarea></div>
+      <button type="submit" class="cf-submit" data-i18n="contact.send">Odoslať správu</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-logo">DUNA <b>&</b> Soľná jaskyňa</div>
+        <p style="margin-top:14px; max-width:280px; font-size:13.5px; line-height:1.6;" data-i18n="foot.desc">Rodinný penzión v historickom centre Komárna s reštauráciou a soľnou jaskyňou.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5 data-i18n="foot.explore">Objaviť</h5>
+          <a href="#rooms" data-i18n="nav.rooms">Izby</a>
+          <a href="#cave" data-i18n="nav.cave">Soľná jaskyňa</a>
+          <a href="#restaurant" data-i18n="nav.resto">Reštaurácia</a>
+          <a href="#gallery" data-i18n="nav.gallery">Galéria</a>
+        </div>
+        <div class="foot-col">
+          <h5 data-i18n="foot.info">Informácie</h5>
+          <a href="#location" data-i18n="nav.location">Poloha</a>
+          <a href="#contact" data-i18n="nav.contact">Kontakt</a>
+          <a href="#booking" data-i18n="nav.book">Rezervovať</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Penzión DUNA & Soľná jaskyňa. <span data-i18n="foot.rights">Všetky práva vyhradené.</span></span>
+      <span data-i18n="foot.address">Dunajská 2, Komárno, Slovensko</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ================= I18N ================= */
+const translations = {
+  sk: {
+    "nav.about":"O nás","nav.rooms":"Izby","nav.cave":"Soľná jaskyňa","nav.resto":"Reštaurácia","nav.gallery":"Galéria","nav.contact":"Kontakt","nav.location":"Poloha","nav.book":"Rezervovať",
+    "hero.eyebrow":"Historické centrum Komárna",
+    "hero.title":"Komfort v srdci Komárna",
+    "hero.sub":"Rodinný penzión s dušou — komfortné izby, reštaurácia s terasou a jedinečná soľná jaskyňa, len pár krokov od Dunaja a historického jadra mesta.",
+    "hero.cta1":"Rezervovať pobyt","hero.cta2":"Prezrieť izby","hero.scroll":"Skrolujte",
+    "about.eyebrow":"O penzióne","about.title":"Rodinná pohostinnosť v srdci starého mesta",
+    "about.p1":"Penzión DUNA stojí len pár metrov od Európskeho nádvoria, v tichej uličke historického centra Komárna. Spájame domácu atmosféru s pozornosťou k detailu, ktorú by ste čakali od oveľa väčšieho hotela.",
+    "about.p2":"Naši hostia sa vracajú pre kombináciu, ktorú v meste inde nenájdu — komfortné izby, reštauráciu s letnou terasou a jedinečnú soľnú jaskyňu priamo v budove penziónu.",
+    "about.card":"Hodnotenie hostí za polohu a atmosféru penziónu",
+    "about.f1t":"Komfortné izby","about.f1d":"Klimatizácia, súkromná kúpeľňa, Wi-Fi",
+    "about.f2t":"Ideálna poloha","about.f2d":"250 m od centra, pri Dunaji",
+    "about.f3t":"Soľná jaskyňa","about.f3d":"Relax priamo v penzióne",
+    "about.f4t":"Reštaurácia","about.f4d":"Letná terasa, domáca kuchyňa",
+    "counters.rooms":"Izieb a apartmánov","counters.rating":"Priemerné hodnotenie","counters.center":"Metrov od centra (m)","counters.langs":"Jazyky personálu",
+    "rooms.eyebrow":"Ubytovanie","rooms.title":"Izby a apartmány pre každý pobyt",
+    "rooms.sub":"Od útulnej dvojlôžkovej izby po priestranné apartmány — každá izba je klimatizovaná, s vlastnou kúpeľňou a bezplatným Wi-Fi.",
+    "room1.name":"Deluxe Dvojlôžková","room1.guests":"2 hostia","room1.size":"22 m²","room1.ac":"Klimatizácia",
+    "room2.name":"Apartmán Anna","room2.guests":"3–4 hostia","room2.size":"38 m²","room2.rooms":"2 izby",
+    "room3.name":"Apartmán Rea","room3.guests":"3–4 hostia","room3.size":"36 m²","room3.rooms":"2 izby",
+    "am.wifi":"Wi-Fi","am.tv":"Satelitná TV","am.bath":"Súkromná kúpeľňa","am.kitchenette":"Kuchynka","am.terrace":"Terasa","am.parking":"Parkovanie",
+    "room.book":"Rezervovať",
+    "booking.eyebrow":"Rezervácia","booking.title":"Rezervujte si pobyt priamo","booking.sub":"Vyberte termín, izbu a počet hostí. Potvrdíme vašu rezerváciu do 24 hodín na e-mail.",
+    "booking.arrival":"Príchod","booking.departure":"Odchod","booking.room":"Izba","booking.guests":"Počet hostí","booking.notes":"Špeciálne požiadavky (voliteľné)","booking.notesPh":"Napr. neskorý príchod, alergie, soľná jaskyňa...",
+    "booking.estimate":"Odhadovaná cena","booking.submit":"Odoslať rezerváciu",
+    "booking.successTitle":"Rezervácia odoslaná","booking.successDesc":"Ďakujeme! Potvrdenie vám pošleme e-mailom do 24 hodín. Tešíme sa na vašu návštevu.",
+    "cave.eyebrow":"Jedinečný zážitok","cave.title":"Soľná jaskyňa priamo v penzióne",
+    "cave.p":"Naša soľná jaskyňa vytvára mikroklímu prímorského pobrežia — ideálnu na relaxáciu, dýchacie cesty a regeneráciu po dni plnom pamiatok. Otvorená pre hostí aj verejnosť.",
+    "cave.b1":"Podpora dýchacích ciest a imunity","cave.b2":"Hlboká relaxácia a redukcia stresu","cave.b3":"Vhodné pre deti aj seniorov","cave.b4":"Príjemné, tlmené osvetlenie a ticho",
+    "cave.hoursK":"Otváracie hodiny","cave.priceK":"Cena / vstup","cave.cta":"Rezervovať soľnú jaskyňu",
+    "resto.eyebrow":"Gastronómia","resto.title":"Reštaurácia s letnou terasou",
+    "resto.p":"Domáca kuchyňa pripravovaná z lokálnych surovín, podávaná v útulnej reštaurácii alebo na tienistej terase. Raňajky, obedy aj večere pre hostí aj okoloidúcich.",
+    "resto.t1":"Raňajky na objednávku","resto.t2":"Letná terasa","resto.t3":"Domáca kuchyňa","resto.t4":"Slovenská & maďarská kuchyňa","resto.cta":"Pozrieť menu",
+    "gallery.eyebrow":"Galéria","gallery.title":"Nahliadnite do penziónu",
+    "testi.eyebrow":"Referencie","testi.title":"Čo hovoria naši hostia",
+    "testi.q1":"„Skvelé miesto blízko peších zón. Izba priestranná a pohodlná, personál veľmi ochotný. Soľná jaskyňa bola príjemným prekvapením.“","testi.from1":"Bratislava, SK",
+    "testi.q2":"„Skvelá poloha, priateľský prístup, čisto a útulne. Bicykle sme mali bezpečne uschované priamo v izbe.“","testi.from2":"Győr, HU",
+    "testi.q3":"„Veľmi spokojní s pobytom. Izby pekné, s TV a všetkým potrebným. Raňajky na objednávku boli výborné.“","testi.from3":"Viedeň, AT",
+    "loc.eyebrow":"Poloha","loc.title":"V srdci historického Komárna",
+    "loc.sub":"Penzión sa nachádza na Dunajskej ulici, 250 m od centra mesta a Európskeho nádvoria, s bezplatným parkovaním priamo na mieste.",
+    "loc.i1":"Európske nádvorie","loc.i2":"Podunajské múzeum","loc.i3":"Pevnosť Komárno","loc.i4":"Termálne kúpalisko","loc.i5":"Železničná stanica","loc.i6":"Bezplatné parkovanie","loc.onsite":"Priamo na mieste",
+    "contact.eyebrow":"Kontakt","contact.title":"Máte otázku? Napíšte nám",
+    "contact.addrK":"Adresa","contact.phoneK":"Telefón","contact.emailK":"E-mail","contact.hoursK":"Recepcia","contact.hoursV":"Check-in 14:00–20:00 · Check-out do 10:00",
+    "contact.name":"Meno","contact.email":"E-mail","contact.subject":"Predmet","contact.message":"Správa","contact.send":"Odoslať správu",
+    "foot.desc":"Rodinný penzión v historickom centre Komárna s reštauráciou a soľnou jaskyňou.",
+    "foot.explore":"Objaviť","foot.info":"Informácie","foot.rights":"Všetky práva vyhradené.","foot.address":"Dunajská 2, Komárno, Slovensko"
+  },
+  hu: {
+    "nav.about":"Rólunk","nav.rooms":"Szobák","nav.cave":"Sóbarlang","nav.resto":"Étterem","nav.gallery":"Galéria","nav.contact":"Kapcsolat","nav.location":"Elhelyezkedés","nav.book":"Foglalás",
+    "hero.eyebrow":"Komárom történelmi belvárosa",
+    "hero.title":"Komfort Komárom szívében",
+    "hero.sub":"Családi panzió lélekkel — kényelmes szobák, teraszos étterem és egyedülálló sóbarlang, néhány lépésre a Dunától és a történelmi belvárostól.",
+    "hero.cta1":"Szoba foglalása","hero.cta2":"Szobák megtekintése","hero.scroll":"Görgessen",
+    "about.eyebrow":"A panzióról","about.title":"Családias vendégszeretet az óváros szívében",
+    "about.p1":"A Duna Panzió mindössze néhány méterre áll az Európa-udvartól, Komárom történelmi belvárosának egy csendes utcájában. A házias hangulatot olyan figyelmességgel ötvözzük, amit egy sokkal nagyobb szállodától várna az ember.",
+    "about.p2":"Vendégeink olyan kombinációért térnek vissza, amit máshol a városban nem találnak — kényelmes szobák, nyári teraszos étterem és egyedülálló sóbarlang közvetlenül az épületben.",
+    "about.card":"Vendégértékelés a panzió elhelyezkedésére és hangulatára",
+    "about.f1t":"Kényelmes szobák","about.f1d":"Légkondicionálás, saját fürdőszoba, Wi-Fi",
+    "about.f2t":"Ideális elhelyezkedés","about.f2d":"250 m a belvárostól, a Duna mellett",
+    "about.f3t":"Sóbarlang","about.f3d":"Relaxáció közvetlenül a panzióban",
+    "about.f4t":"Étterem","about.f4d":"Nyári terasz, házias konyha",
+    "counters.rooms":"Szoba és apartman","counters.rating":"Átlagos értékelés","counters.center":"Méter a belvárostól","counters.langs":"Nyelv, amit a személyzet beszél",
+    "rooms.eyebrow":"Elszállásolás","rooms.title":"Szobák és apartmanok minden igényre",
+    "rooms.sub":"A hangulatos kétágyas szobától a tágas apartmanokig — minden szoba légkondicionált, saját fürdőszobával és ingyenes Wi-Fivel.",
+    "room1.name":"Deluxe Kétágyas","room1.guests":"2 fő","room1.size":"22 m²","room1.ac":"Légkondicionálás",
+    "room2.name":"Anna Apartman","room2.guests":"3–4 fő","room2.size":"38 m²","room2.rooms":"2 szoba",
+    "room3.name":"Rea Apartman","room3.guests":"3–4 fő","room3.size":"36 m²","room3.rooms":"2 szoba",
+    "am.wifi":"Wi-Fi","am.tv":"Szatellit TV","am.bath":"Saját fürdőszoba","am.kitchenette":"Kis konyha","am.terrace":"Terasz","am.parking":"Parkolás",
+    "room.book":"Foglalás",
+    "booking.eyebrow":"Foglalás","booking.title":"Foglaljon szobát közvetlenül","booking.sub":"Válassza ki az időpontot, a szobát és a vendégek számát. Foglalását 24 órán belül e-mailben visszaigazoljuk.",
+    "booking.arrival":"Érkezés","booking.departure":"Távozás","booking.room":"Szoba","booking.guests":"Vendégek száma","booking.notes":"Különleges kérések (opcionális)","booking.notesPh":"Pl. késői érkezés, allergia, sóbarlang...",
+    "booking.estimate":"Becsült ár","booking.submit":"Foglalás elküldése",
+    "booking.successTitle":"Foglalás elküldve","booking.successDesc":"Köszönjük! A visszaigazolást 24 órán belül e-mailben küldjük. Várjuk látogatását.",
+    "cave.eyebrow":"Egyedülálló élmény","cave.title":"Sóbarlang közvetlenül a panzióban",
+    "cave.p":"Sóbarlangunk a tengerparti mikroklímát idézi — ideális a relaxációhoz, a légutakhoz és a felfrissüléshez egy látnivalókban gazdag nap után. Vendégeink és a nagyközönség számára is nyitva áll.",
+    "cave.b1":"Légutak és immunrendszer támogatása","cave.b2":"Mély relaxáció és stresszcsökkentés","cave.b3":"Gyermekek és idősek számára is ajánlott","cave.b4":"Kellemes, tompított fény és csend",
+    "cave.hoursK":"Nyitvatartás","cave.priceK":"Belépő ára","cave.cta":"Sóbarlang foglalása",
+    "resto.eyebrow":"Gasztronómia","resto.title":"Étterem nyári terasszal",
+    "resto.p":"Házias konyha helyi alapanyagokból, hangulatos étteremben vagy árnyas teraszon felszolgálva. Reggeli, ebéd és vacsora vendégeinknek és betérőknek egyaránt.",
+    "resto.t1":"Reggeli előzetes egyeztetéssel","resto.t2":"Nyári terasz","resto.t3":"Házias konyha","resto.t4":"Szlovák és magyar konyha","resto.cta":"Étlap megtekintése",
+    "gallery.eyebrow":"Galéria","gallery.title":"Tekintsen be a panzióba",
+    "testi.eyebrow":"Vélemények","testi.title":"Amit vendégeink mondanak",
+    "testi.q1":"„Remek hely a sétálóutcák közelében. A szoba tágas és kényelmes, a személyzet nagyon segítőkész. A sóbarlang kellemes meglepetés volt.“","testi.from1":"Pozsony, SK",
+    "testi.q2":"„Remek elhelyezkedés, barátságos hozzáállás, tiszta és otthonos. A kerékpárjainkat biztonságosan tudtuk tárolni a szobában.“","testi.from2":"Győr, HU",
+    "testi.q3":"„Nagyon elégedettek voltunk a tartózkodással. A szobák szépek, TV-vel és mindennel felszerelve. A reggeli kiváló volt.“","testi.from3":"Bécs, AT",
+    "loc.eyebrow":"Elhelyezkedés","loc.title":"Komárom történelmi szívében",
+    "loc.sub":"A panzió a Duna utcában található, 250 méterre a városközponttól és az Európa-udvartól, ingyenes parkolással a helyszínen.",
+    "loc.i1":"Európa-udvar","loc.i2":"Duna Menti Múzeum","loc.i3":"Komáromi erőd","loc.i4":"Termálfürdő","loc.i5":"Vasútállomás","loc.i6":"Ingyenes parkolás","loc.onsite":"Közvetlenül a helyszínen",
+    "contact.eyebrow":"Kapcsolat","contact.title":"Kérdése van? Írjon nekünk",
+    "contact.addrK":"Cím","contact.phoneK":"Telefon","contact.emailK":"E-mail","contact.hoursK":"Recepció","contact.hoursV":"Bejelentkezés 14:00–20:00 · Kijelentkezés 10:00-ig",
+    "contact.name":"Név","contact.email":"E-mail","contact.subject":"Tárgy","contact.message":"Üzenet","contact.send":"Üzenet küldése",
+    "foot.desc":"Családi panzió Komárom történelmi belvárosában, étteremmel és sóbarlanggal.",
+    "foot.explore":"Felfedezés","foot.info":"Információk","foot.rights":"Minden jog fenntartva.","foot.address":"Dunajská 2, Komárno, Szlovákia"
+  },
+  en: {
+    "nav.about":"About","nav.rooms":"Rooms","nav.cave":"Salt Cave","nav.resto":"Restaurant","nav.gallery":"Gallery","nav.contact":"Contact","nav.location":"Location","nav.book":"Book Now",
+    "hero.eyebrow":"Historic Centre of Komárno",
+    "hero.title":"Experience Comfort in the Heart of Komárno",
+    "hero.sub":"A family-run guesthouse with soul — comfortable rooms, a restaurant with a terrace, and a unique salt cave, just steps from the Danube and the old town.",
+    "hero.cta1":"Book Your Stay","hero.cta2":"Explore Rooms","hero.scroll":"Scroll",
+    "about.eyebrow":"About Us","about.title":"Family hospitality in the heart of the old town",
+    "about.p1":"Penzión DUNA stands just metres from the Courtyard of Europe, on a quiet street in Komárno's historic centre. We combine a homely atmosphere with the attention to detail you'd expect from a much larger hotel.",
+    "about.p2":"Our guests return for a combination they won't find elsewhere in town — comfortable rooms, a restaurant with a summer terrace, and a unique salt cave right inside the building.",
+    "about.card":"Guest rating for the location and atmosphere of the guesthouse",
+    "about.f1t":"Comfortable Rooms","about.f1d":"Air conditioning, private bathroom, Wi-Fi",
+    "about.f2t":"Prime Location","about.f2d":"250 m from the centre, by the Danube",
+    "about.f3t":"Salt Cave","about.f3d":"Relaxation right on site",
+    "about.f4t":"Restaurant","about.f4d":"Summer terrace, home cooking",
+    "counters.rooms":"Rooms & Apartments","counters.rating":"Average Rating","counters.center":"Metres from the Centre","counters.langs":"Languages Spoken by Staff",
+    "rooms.eyebrow":"Accommodation","rooms.title":"Rooms and apartments for every stay",
+    "rooms.sub":"From a cosy double room to spacious apartments — every room is air-conditioned, with a private bathroom and free Wi-Fi.",
+    "room1.name":"Deluxe Double","room1.guests":"2 guests","room1.size":"22 m²","room1.ac":"Air conditioning",
+    "room2.name":"Apartment Anna","room2.guests":"3–4 guests","room2.size":"38 m²","room2.rooms":"2 rooms",
+    "room3.name":"Apartment Rea","room3.guests":"3–4 guests","room3.size":"36 m²","room3.rooms":"2 rooms",
+    "am.wifi":"Wi-Fi","am.tv":"Satellite TV","am.bath":"Private bathroom","am.kitchenette":"Kitchenette","am.terrace":"Terrace","am.parking":"Parking",
+    "room.book":"Book Now",
+    "booking.eyebrow":"Reservation","booking.title":"Book your stay directly","booking.sub":"Choose your dates, room, and number of guests. We'll confirm your reservation by email within 24 hours.",
+    "booking.arrival":"Check-in","booking.departure":"Check-out","booking.room":"Room","booking.guests":"Guests","booking.notes":"Special requests (optional)","booking.notesPh":"E.g. late arrival, allergies, salt cave...",
+    "booking.estimate":"Estimated price","booking.submit":"Send Reservation",
+    "booking.successTitle":"Reservation Sent","booking.successDesc":"Thank you! We'll send your confirmation by email within 24 hours. We look forward to your stay.",
+    "cave.eyebrow":"A Unique Experience","cave.title":"A salt cave, right inside the guesthouse",
+    "cave.p":"Our salt cave recreates a seaside microclimate — ideal for relaxation, respiratory wellbeing, and recovery after a day of sightseeing. Open to guests and the public alike.",
+    "cave.b1":"Supports respiratory health and immunity","cave.b2":"Deep relaxation and stress reduction","cave.b3":"Suitable for children and seniors","cave.b4":"Calm, dimmed lighting and quiet",
+    "cave.hoursK":"Opening hours","cave.priceK":"Price / session","cave.cta":"Reserve Salt Cave Session",
+    "resto.eyebrow":"Dining","resto.title":"Restaurant with a summer terrace",
+    "resto.p":"Home cooking made from local ingredients, served in a cosy dining room or on the shaded terrace. Breakfast, lunch, and dinner for guests and visitors alike.",
+    "resto.t1":"Breakfast on request","resto.t2":"Summer terrace","resto.t3":"Home cooking","resto.t4":"Slovak & Hungarian cuisine","resto.cta":"View Menu",
+    "gallery.eyebrow":"Gallery","gallery.title":"A look inside the guesthouse",
+    "testi.eyebrow":"Testimonials","testi.title":"What our guests say",
+    "testi.q1":"“A great place close to the pedestrian streets. The room was spacious and comfortable, staff very helpful. The salt cave was a lovely surprise.”","testi.from1":"Bratislava, SK",
+    "testi.q2":"“Great location, friendly approach, clean and cosy. We were able to keep our bikes safely stored right in the room.”","testi.from2":"Győr, HU",
+    "testi.q3":"“Very satisfied with our stay. Rooms were lovely, with TV and everything we needed. Breakfast on request was excellent.”","testi.from3":"Vienna, AT",
+    "loc.eyebrow":"Location","loc.title":"In the heart of historic Komárno",
+    "loc.sub":"The guesthouse is located on Dunajská street, 250 m from the town centre and the Courtyard of Europe, with free parking on site.",
+    "loc.i1":"Courtyard of Europe","loc.i2":"Danube Region Museum","loc.i3":"Komárno Fortress","loc.i4":"Thermal Spa","loc.i5":"Railway Station","loc.i6":"Free Parking","loc.onsite":"On site",
+    "contact.eyebrow":"Contact","contact.title":"Have a question? Get in touch",
+    "contact.addrK":"Address","contact.phoneK":"Phone","contact.emailK":"Email","contact.hoursK":"Reception","contact.hoursV":"Check-in 2–8 PM · Check-out until 10 AM",
+    "contact.name":"Name","contact.email":"Email","contact.subject":"Subject","contact.message":"Message","contact.send":"Send Message",
+    "foot.desc":"A family guesthouse in Komárno's historic centre with a restaurant and salt cave.",
+    "foot.explore":"Explore","foot.info":"Information","foot.rights":"All rights reserved.","foot.address":"Dunajská 2, Komárno, Slovakia"
+  }
+};
+
+let currentLang = 'sk';
+
+function applyTranslations(lang){
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(translations[lang] && translations[lang][key]){
+      el.textContent = translations[lang][key];
+    }
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-ph');
+    if(translations[lang] && translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
+  });
+  buildHeroHeadline(translations[lang]['hero.title']);
+  document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+}
+
+function buildHeroHeadline(text){
+  const el = document.getElementById('heroHeadline');
+  el.innerHTML = '';
+  // split into up to 2 lines by width heuristic (simple word-based split)
+  const words = text.split(' ');
+  const mid = Math.ceil(words.length/2);
+  const lines = [words.slice(0,mid).join(' '), words.slice(mid).join(' ')].filter(Boolean);
+  lines.forEach(line=>{
+    const wrap = document.createElement('span');
+    wrap.className='line';
+    const inner = document.createElement('span');
+    inner.textContent = line;
+    wrap.appendChild(inner);
+    el.appendChild(wrap);
+  });
+  animateHeroHeadline();
+}
+
+function animateHeroHeadline(){
+  gsap.set('.hero h1 .line span', {yPercent:110});
+  gsap.to('.hero h1 .line span', {yPercent:0, duration:1.1, ease:'power4.out', stagger:.12, delay:.6});
+}
+
+document.querySelectorAll('.lang-switch button').forEach(btn=>{
+  btn.addEventListener('click', ()=> applyTranslations(btn.dataset.lang));
+});
+
+/* ================= LOADER ================= */
+window.addEventListener('load', ()=>{
+  const tl = gsap.timeline();
+  tl.to('#loader .bar span', {scaleX:1, duration:.9, ease:'power2.inOut'})
+    .to('#loader', {yPercent:-100, duration:.8, ease:'power3.inOut', delay:.15})
+    .set('#loader', {display:'none'})
+    .add(()=>{ applyTranslations('sk'); }, '-=0.5')
+    .from('.hero-eyebrow span', {yPercent:120, duration:.8, ease:'power3.out'}, '-=0.3')
+    .from('.hero-sub, .hero-ctas', {opacity:0, y:24, duration:.9, ease:'power3.out', stagger:.12}, '-=0.5');
+});
+
+/* ================= NAV ================= */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', window.scrollY > 60);
+});
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', ()=> mobileMenu.classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', ()=> mobileMenu.classList.remove('open'));
+mobileMenu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mobileMenu.classList.remove('open')));
+
+/* ================= SCROLL ANIMATIONS ================= */
+gsap.registerPlugin(ScrollTrigger);
+
+document.querySelectorAll('.reveal').forEach(el=>{
+  gsap.to(el, {
+    opacity:1, y:0, duration:1, ease:'power3.out',
+    scrollTrigger:{ trigger:el, start:'top 85%' }
+  });
+});
+
+gsap.utils.toArray('.room-card').forEach((card,i)=>{
+  gsap.to(card, {
+    opacity:1, y:0, duration:.9, ease:'power3.out', delay:i*0.08,
+    scrollTrigger:{ trigger:card, start:'top 88%' }
+  });
+});
+gsap.set('.room-card', {opacity:0, y:40});
+
+// hero parallax
+gsap.to('.hero-media img', {
+  yPercent:12, ease:'none', scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:true }
+});
+
+// counters
+document.querySelectorAll('.counter-item .num').forEach(el=>{
+  const target = parseFloat(el.dataset.count);
+  const decimal = el.dataset.decimal ? 1 : 0;
+  ScrollTrigger.create({
+    trigger: el, start:'top 90%', once:true,
+    onEnter:()=>{
+      let obj={val:0};
+      gsap.to(obj, {val:target, duration:1.6, ease:'power2.out', onUpdate:()=>{
+        el.textContent = decimal ? obj.val.toFixed(1) : Math.round(obj.val);
+      }});
+    }
+  });
+});
+
+/* floating decor mouse parallax */
+document.addEventListener('mousemove', (e)=>{
+  const x = (e.clientX / window.innerWidth - .5) * 30;
+  const y = (e.clientY / window.innerHeight - .5) * 30;
+  gsap.to('.float-deco', {x:x, y:y, duration:1.2, ease:'power2.out'});
+});
+
+/* ================= BOOKING ================= */
+const roomSelect = document.getElementById('bkRoom');
+const arrival = document.getElementById('bkArrival');
+const departure = document.getElementById('bkDeparture');
+const totalEl = document.getElementById('bkTotal');
+
+function updateEstimate(){
+  const price = parseFloat(roomSelect.value)||0;
+  const a = new Date(arrival.value), d = new Date(departure.value);
+  let nights = Math.round((d-a)/(1000*60*60*24));
+  if(!nights || nights<1) nights = 1;
+  totalEl.textContent = (price*nights).toFixed(0) + ' €';
+}
+[roomSelect, arrival, departure].forEach(el=> el.addEventListener('input', updateEstimate));
+[roomSelect, arrival, departure].forEach(el=> el.addEventListener('change', updateEstimate));
+
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  if(!arrival.value || !departure.value){ updateEstimate(); }
+  const btn = document.getElementById('bkSubmit');
+  btn.classList.add('loading');
+  setTimeout(()=>{
+    btn.classList.remove('loading');
+    this.style.display='none';
+    const success = document.getElementById('bkSuccess');
+    success.classList.add('show');
+    gsap.from(success, {opacity:0, y:20, duration:.6, ease:'power3.out'});
+  }, 1400);
+});
+
+/* set min dates */
+(function(){
+  const today = new Date().toISOString().split('T')[0];
+  arrival.min = today; departure.min = today;
+})();
+
+/* ================= GALLERY LIGHTBOX ================= */
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+document.querySelectorAll('.g-item img').forEach(img=>{
+  img.addEventListener('click', ()=>{
+    lbImg.src = img.src.replace('w=600','w=1400').replace('w=700','w=1400');
+    lightbox.classList.add('open');
+  });
+});
+document.getElementById('lbClose').addEventListener('click', ()=> lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
+
+/* ================= TESTIMONIALS SLIDER ================= */
+const slides = document.querySelectorAll('.testi-slide');
+let testiIdx = 0;
+function showSlide(i){
+  slides.forEach(s=>s.classList.remove('active'));
+  testiIdx = (i+slides.length)%slides.length;
+  slides[testiIdx].classList.add('active');
+  gsap.from(slides[testiIdx], {opacity:0, x:20, duration:.6, ease:'power3.out'});
+}
+document.getElementById('testiNext').addEventListener('click', ()=> showSlide(testiIdx+1));
+document.getElementById('testiPrev').addEventListener('click', ()=> showSlide(testiIdx-1));
+let testiAuto = setInterval(()=> showSlide(testiIdx+1), 6500);
+
+/* ================= CONTACT FORM ================= */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const btn = this.querySelector('.cf-submit');
+  const original = btn.textContent;
+  btn.textContent = '...';
+  setTimeout(()=>{
+    btn.textContent = currentLang==='en' ? 'Message Sent ✓' : currentLang==='hu' ? 'Elküldve ✓' : 'Správa odoslaná ✓';
+    this.reset();
+    setTimeout(()=> btn.textContent = original, 3000);
+  }, 900);
+});
+</script>
+</body>
+</html>
